@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,17 @@
     <link rel="stylesheet" href="style.css">
     <!-- Importation de MediaPipe Face Mesh (Léger et côté client uniquement) -->
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- Le fond brut et stressant -->
     <div id="game-container">
-        
+
         <header>
             <h1>PATATE : LE DUEL</h1>
             <div id="timer">00:00:00</div>
@@ -42,10 +46,10 @@
                 <img id="patate-img" src="https://placehold.co/400x500?text=Patate+Chelou" alt="La Patate Chelou">
             </div>
         </main>
-        
+
         <!-- Webcam feed (caché, on ne se voit pas dans une guerre de patate) -->
         <video id="webcam-video" style="display: none;" playsinline></video>
-        
+
         <!-- Debug canvas au cas où (très petit) -->
         <canvas id="debug-canvas" width="640" height="480"></canvas>
 
@@ -59,4 +63,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
