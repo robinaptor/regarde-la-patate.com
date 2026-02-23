@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATATE : LE DUEL</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Importation de MediaPipe Face Mesh (Léger et côté client uniquement) -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Le fond brut et stressant -->
+    <div id="game-container">
+        
+        <header>
+            <h1>PATATE : LE DUEL</h1>
+            <div id="timer">00:00:00</div>
+        </header>
+
+        <main id="main-content">
+            <!-- État initial : bouton pour démarrer -->
+            <div id="start-screen" class="screen active">
+                <h2>Oses-tu défier la patate ?</h2>
+                <p>Tu vas devoir la fixer. Si tu clignes des yeux, tu perds.<br>Si tu détournes le regard, tu perds.</p>
+                <p>Autorise ta webcam pour que la patate puisse vérifier.</p>
+                <button id="start-btn">J'ACCEPTE LE DUEL</button>
+            </div>
+
+            <!-- Chargement des modèles IA -->
+            <div id="loading-screen" class="screen">
+                <h2>Chargement du regard de la patate...</h2>
+                <div class="spinner"></div>
+                <p>(La webcam s'allume, ne bouge pas...)</p>
+            </div>
+
+            <!-- Le Jeu : La Patate -->
+            <div id="play-screen" class="screen">
+                <!-- IMPORTANT : Remplace le lien ci-dessous par ton image de patate (ex: patate.png) -->
+                <img id="patate-img" src="https://placehold.co/400x500?text=Patate+Chelou" alt="La Patate Chelou">
+            </div>
+        </main>
+        
+        <!-- Webcam feed (caché, on ne se voit pas dans une guerre de patate) -->
+        <video id="webcam-video" style="display: none;" playsinline></video>
+        
+        <!-- Debug canvas au cas où (très petit) -->
+        <canvas id="debug-canvas" width="640" height="480"></canvas>
+
+    </div>
+
+    <!-- Écran de Jumpscare (Défaite) -->
+    <div id="jumpscare-screen">
+        <h1 id="jumpscare-text">PERDU ! TU AS CLIGNÉ !</h1>
+        <!-- IMPORTANT : Le fichier son est chargé dynamiquement dans le script (scream.mp3) -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
